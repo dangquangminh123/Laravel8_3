@@ -1,0 +1,30 @@
+composer require laravel/Jetstream
+
+//
+composer require livewire/livewire
+//install livewire
+php artisan jetstream:install livewire
+
+1/tạo livewire thay cho controller
+
+ composer require hardevine/shoppingcart
+
+//Shopping cart
+php artisan vendor:publish --provider="Gloudemans\ShoppingcartServiceProvider" --tag="config"
+
+
+//Lưu ý cho phần forgot password
+** vào trong .env 
+sửa phần MAIL_HOST,MAIL_PORT,MAIL_USERNAME,MAIL_PASSWORD,MAIL_FROM_ADDRESS thành MAIL_HOST=smtp.googlemail.com
+MAIL_PORT=465
+MAIL_USERNAME=dangquangminhdn86@gmail.com
+MAIL_PASSWORD=Actionfigure1
+MAIL_FROM_ADDRESS="dangquangminhdn86@gmail.com"
+
+//Send Order Confirmation Email
+php artisan make:mail OrderMail
+
+//
+php artisan vendor:publish --provider="Gloudemans\Shoppingcart\ShoppingcartServiceProvider" --tag="migrations"
+
+php artisan make:migration add_options_to_order_items_table --table=order_items
